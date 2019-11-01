@@ -1,15 +1,9 @@
-#Swoft AOP记录用户操作日志 示例
+SET  NAMES utf8mb4;
+SET FOREIGN_KEY_CHECHS = 0;
 
-
-#### 下载安装
- ```bash
- git clone https://github.com/nilocsu/swoft-aop-log.git
- cd swoft-aop-log
- composer install
-```
-
-在数据库中创建一张sys_log表
-```sql
+-- ----------------------------
+-- Table structure for t_log
+-- ----------------------------
 DROP TABLE IF EXISTS `t_log`;
 CREATE TABLE `t_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '日志ID',
@@ -24,22 +18,5 @@ CREATE TABLE `t_log` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1839 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-```
-实体已存在，不用再创建
 
-##### 配置数据连接
-在.env中配置数据库连接
-```dotenv
-DB_DSN =
-DB_USERNAME =
-DB_PASSWORD =
-```
-
-##### 执行
-启动项目，分别访问：
-
-http://localhost:18306/test/one?type=test1
-
-http://localhost:18306/test/two
-
-http://localhost:18306/test/three
+SET FOREIGN_KEY_CHECKS = 1;
